@@ -1,0 +1,9 @@
+set number
+set syntax=on
+set mouse=a
+set t_Co=256
+set showcmd
+set autoindent
+set smartindent
+set hlsearch
+set tabstop=4
