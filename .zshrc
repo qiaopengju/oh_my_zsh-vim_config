@@ -4,7 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/kkyou/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k"
+#ZSH_THEME="agnoster"
 #ZSH_THEME="robbyrussell"
 
 # Set name of the theme to load --- if set to "random", it will
