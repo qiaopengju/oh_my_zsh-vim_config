@@ -2,19 +2,19 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/Users/kkyou/.oh-my-zsh"
+
+ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerline"
-ZSH_THEME="powerlevel9k/powerlevel9k"
-export TERM="xterm-256color"
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -25,16 +25,11 @@ export TERM="xterm-256color"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -46,9 +41,6 @@ export TERM="xterm-256color"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -68,15 +60,20 @@ export TERM="xterm-256color"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	z
+plugins=(git
+    bundler
+    dotenv
+    osx
+    rake
+    rbenv
+    ruby
+    z
+    zsh-syntax-highlighting
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,4 +103,29 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-bindkey '	' autosuggest-accept
+
+#######################################
+set -o vi #powerline vi mode
+bindkey '^a' autosuggest-accept
+
+#curl
+export PATH="$PATH: /usr/local/opt/curl/bin"
+#llvm
+export PATH=$PATH:/usr/local/opt/llvm/bin
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+export PATH="$PATH:/Users/kkyou/Development/Lib/apache-maven-3.6.3/bin" #maven
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="$PATH:~/Development/Lib/LSP/dart_language_server/bin"
+export PATH="$PATH:~/Development/flutter/bin" #flutter
+export PATH="/usr/local/Cellar/macvim/8.2-170/MacVim.app/Contents/bin/:$PATH"
+export PATH="./node_modules/.bin:$PATH"
+
+
+alias vim=mvim
+alias mvim='mvim -v'
+alias hexo='npx hexo'
+alias clang='/usr/local/opt/llvm/bin/clang -I/usr/local/opt/llvm/include -L/usr/local/opt/llvm/lib'
+alias clang++='/usr/local/opt/llvm/bin/clang++ -I/usr/local/opt/llvm/include -L/usr/local/opt/llvm/lib'
